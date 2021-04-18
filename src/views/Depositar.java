@@ -12,11 +12,12 @@ public class Depositar {
 		System.out.println("Digite o valor a ser depositado:");
 		double valor = Double.parseDouble(sc.nextLine());
 		
-		if(ContaController.depositar(valor, numero) == 0) {
+		boolean resultado = ContaController.depositar(valor, numero);
+		
+		if(!resultado) {
 				System.out.println("Não foi possível efetuar o deposito.");
 			} else {
 				System.out.println("Depósito efetuado com sucesso.");
-				System.out.println(ContaController.depositar(valor, numero));
 		}
 					
 	}

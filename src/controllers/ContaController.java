@@ -47,16 +47,16 @@ public class ContaController {
 		return 0;
 	}
 	
-	public static double depositar(double valorDepositado, String numero) {
+	public static boolean depositar(double valorDepositado, String numero) {
 		for (int i = 0; i < contas.size(); i++){
 			if(contas.get(i).getNumeroConta().equals(numero) && valorDepositado > 0){
 				double resul = contas.get(i).getSaldo() + valorDepositado;
 				contas.set(i, new Conta(numero, contas.get(i).getSenha(), resul)); 
-				return contas.get(i).getSaldo();
+				return true;
 			}
 		}
 		
-		return 0;
+		return false;
 	}
 	
 	public static double consultarSaldo(String numero, String senha) {
