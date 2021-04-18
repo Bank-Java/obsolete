@@ -1,10 +1,6 @@
 package controllers;
 import java.util.ArrayList;
-
-//import java.util.Objects;
-//import java.util.Optional;
 import models.Cliente;
-import models.Conta;
 
 public class ClienteController {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
