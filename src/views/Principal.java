@@ -27,6 +27,7 @@ public class Principal {
 				CadastrarGerente.renderizar();
 				break;
 			case 3:
+				Sacar.renderizar();
 				break;
 			case 4:
 				break;
