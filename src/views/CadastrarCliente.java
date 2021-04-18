@@ -10,20 +10,20 @@ public class CadastrarCliente {
 	static Cliente cliente;
 	
 	public static void renderizar() {
-		cliente = new Cliente();
 		System.out.println("\n-- CADASTRAR CLIENTE --\n");
 		System.out.println("Digite o nome do cliente:");
-		cliente.setNome(sc.next());
+		String nome = (sc.next());
 		System.out.println("Digite o CPF do cliente:");
-		cliente.setCpf(sc.next());
+		String cpf = (sc.next());
 		System.out.println("Digite o email do cliente:");
-		cliente.setEmail(sc.next());
+		String email = (sc.next());
 		System.out.println("Digite o endereço do cliente:");
-		cliente.setEndereco(sc.next());
+		String endereco = (sc.next());
 		System.out.println("Digite o telefone do cliente:");
-		cliente.setTelefone(sc.next());
+		String telefone = (sc.next());
 		System.out.println("Digite a data de nascimento do cliente:");
-		cliente.setDataNascimento(sc.next());
+		String dataNascimento = (sc.next());
+		Cliente cliente = new Cliente(nome, cpf, email, endereco, telefone, dataNascimento);
 		Conta conta = CadastrarConta.renderizar();
 		
 		if(ContaController.cadastrar(conta)) {

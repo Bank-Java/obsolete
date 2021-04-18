@@ -4,6 +4,7 @@ import java.util.ArrayList;
 //import java.util.Objects;
 //import java.util.Optional;
 import models.Cliente;
+import models.Conta;
 
 public class ClienteController {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -35,5 +36,16 @@ public class ClienteController {
 	
 	public static ArrayList<Cliente> retornarClientes() {
 		return clientes;
+	}
+	
+	public static boolean atualizar(String nome, String cpf, String email, String endereco, String telefone,
+			String dataNascimento) {
+		for (int i = 0; i < clientes.size(); i++){
+			if(clientes.get(i).getCpf().equals(cpf)){
+				clientes.set(i, new Cliente(nome, clientes.get(i).getCpf(), email, endereco, telefone, dataNascimento)); 
+				return true;
+			}
+		}
+		return false;
 	}
 }

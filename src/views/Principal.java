@@ -15,7 +15,6 @@ public class Principal {
 					+ "6 – Consultar saldo\r\n"
 					+ "7 – Transferir\r\n"
 					+ "8 – Atualizar dados cadastrais\r\n"
-					+ "9 – Emissão de Comprovantes\r\n"
 					+ "0 – Sair\r\n");
 			System.out.println("Digite a opção desejada: ");
 			opcao = sc.nextInt();
@@ -30,16 +29,17 @@ public class Principal {
 				Sacar.renderizar();
 				break;
 			case 4:
+				Depositar.renderizar();
 				break;
 			case 5:
 				break;
 			case 6:
+				ConsultarSaldo.renderizar();
 				break;
 			case 7:
 				break;
 			case 8:
-				break;
-			case 9:
+				Atualizar.renderizar();
 				break;
 			case 0:
 				System.out.println("\nEncerrando sistema.");

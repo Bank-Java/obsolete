@@ -9,6 +9,16 @@ public class Cliente {
 	private String dataNascimento;
 	private Conta conta;
 
+	public Cliente(String nome, String cpf, String email, String endereco, String telefone,
+			String dataNascimento) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.dataNascimento = dataNascimento;
+	}
+
 	public String getNome() {
 		return nome;
 	}
