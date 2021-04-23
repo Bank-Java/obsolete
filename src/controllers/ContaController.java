@@ -34,10 +34,26 @@ public class ContaController {
 	public static ArrayList<Conta> retornarcontas() {
 		return contas;
 	}
+	
+	public static boolean buscarConta(String numero, String senha) {
+		for (int i = 0; i < contas.size(); i++){
+			if(senha != null) {
+				if(contas.get(i).getNumeroConta().equals(numero) && contas.get(i).getSenha().equals(senha)){
+					return true;
+				}
+			} else {
+				if(contas.get(i).getNumeroConta().equals(numero)){
+					return true;
+				}
+			}
+		}
 		
+		return false;
+	}
+	
 	public static double sacar(double valorSacado, String numero, String senha) {
 		for (int i = 0; i < contas.size(); i++){
-			if(contas.get(i).getNumeroConta().equals(numero) && contas.get(i).getSenha().equals(senha) && contas.get(i).getSaldo() > valorSacado){
+			if(buscarConta(numero, senha) && contas.get(i).getSaldo() > valorSacado){
 				double resul = contas.get(i).getSaldo() - valorSacado;
 				contas.set(i, new Conta(numero, senha, resul)); 
 				return contas.get(i).getSaldo();
@@ -49,7 +65,7 @@ public class ContaController {
 	
 	public static boolean depositar(double valorDepositado, String numero) {
 		for (int i = 0; i < contas.size(); i++){
-			if(contas.get(i).getNumeroConta().equals(numero) && valorDepositado > 0){
+			if(buscarConta(numero, null) && valorDepositado > 0){
 				double resul = contas.get(i).getSaldo() + valorDepositado;
 				contas.set(i, new Conta(numero, contas.get(i).getSenha(), resul)); 
 				return true;
